@@ -1,0 +1,12 @@
+# https://taskfile.dev
+
+version: "3"
+
+includes:
+  pf: ./tasks/Taskfile-pf.yaml
+
+tasks:
+  default:
+    cmds:
+      - gcloud auth login
+      

@@ -1,0 +1,8 @@
+# https://taskfile.dev
+
+version: "3"
+tasks:
+  bridgeitau:
+    cmds:
+    - gcloud container clusters get-credentials cluster-app-dev-sa-brbroker --region southamerica-east1 --project prj-avn-corretorasbr-dev-01
+    - kubectl port-forward --namespace dev $(kubectl get pod --namespace dev --selector="app.kubernetes.io/instance=bridgeitau,app.kubernetes.io/name=bridge-itau" --output jsonpath='{.items[0].metadata.name}') 8099:8099
